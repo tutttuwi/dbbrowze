@@ -1,0 +1,36 @@
+# Development
+spring:
+  profiles: dev
+#  datasource:
+#    url: jdbc:postgresql://localhost:5432/postgres?currentSchema=dev
+#    username: postgres
+#    password:
+#    schema: dev
+#    driverClassName: org.postgresql.Driver
+  datasource:
+    #url: jdbc:h2:mem:demodb;MODE=PostgreSQL;INIT=RUNSCRIPT FROM 'src/main/resources/schema-h2.sql'\;SET SCHEMA dev
+    url: jdbc:h2:mem:demodb;MODE=PostgreSQL
+    username: sa
+    password: dm
+    driver-class-name: org.h2.Driver
+#    schema: dev
+#    initialization-mode: always
+  h2:
+    console:
+      enabled: true
+  jpa:
+    hibernate:
+      ddl-auto: none
+
+doma:
+  dialect: postgres
+  sql-file-repository: NO_CACHE # キャッシュの無効化は、開発用設定
+
+# LogLevelをDEBUGにするとかなりエラーログが出力されるのでコメントアウト
+logging:
+  level:
+    root: INFO
+#    com: debug
+#    org: debug
+#    org.springframework: DEBUG
+    

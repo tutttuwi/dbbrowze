@@ -1,0 +1,47 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org"
+  th:with="title='TABLE SEARCH'">
+<head
+  th:replace="parts/common :: meta_header(${title},~{::link},~{::script})">
+<meta charset="UTF-8" />
+<link rel="stylesheet" th:href="@{/css/index.css}" />
+<!--/* <script type="text/javascript" th:src="@{/js/datepicker.js}"></script> */-->
+</head>
+<body class="sidebar-mini accent-primary sidebar-collapse">
+  <div class="wrapper">
+    <!--/* ヘッダー領域
+    ============================== */-->
+    <th:block th:replace="parts/main_header.html::content"></th:block>
+    <!--/* サイドバー領域
+    ============================== */-->
+    <th:block th:replace="parts/main_sidebar.html::content"></th:block>
+    <!--/* コンテンツ領域
+    ============================== */-->
+    <div class="content-wrapper">
+      <!--/* コンテンツヘッダー TODO: partsに分ける
+      ============================== */-->
+      <th:block th:replace="parts/common.html::content_header(${title})"></th:block>
+      <!--/* コンテンツボディ
+      ============================== */-->
+      <section class="content">
+        <div class="container-fluid">
+          <!-- Small boxes (Stat box) -->
+          <div class="row">
+          </div>
+          <!-- /.row (main row) -->
+        </div>
+        <!-- /.container-fluid -->
+      </section>
+
+    </div>
+    <!--/* フッター領域
+    ============================== */-->
+    <th:block th:replace="parts/main_footer.html::content"></th:block>
+    <!--/* コントロールサイドバー領域
+    ============================== */-->
+    <th:block th:replace="parts/control_sidebar.html::content"></th:block>
+  </div>
+  <th:block th:include="parts/common::end_script"></th:block>
+  <script th:src="@{/js/index.js}"></script>
+</body>
+</html>

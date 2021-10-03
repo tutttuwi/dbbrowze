@@ -1,0 +1,75 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org" th:with="title=エラーページ">
+<head
+  th:replace="parts/common :: meta_header(${title},~{::link},~{::script})">
+<meta charset="UTF-8" />
+<!-- <link rel="stylesheet" th:href="@{/css/error/401.css}" /> -->
+</head>
+<body class="hold-transition layout-top-nav">
+  <div class="wrapper">
+
+    <!--/* ヘッダー領域
+    ============================== */-->
+    <th:block th:replace="parts/main_header.html::content_simple"></th:block>
+
+    <!--/* コンテンツ領域
+    ============================== */-->
+    <div class="content-wrapper">
+      <!--/* コンテンツヘッダー
+      ============================== */-->
+      <div class="content-header">
+        <div class="container">
+          <div class="row mb-2">
+            <div class="col-sm-6">
+              <h1 class="m-0 text-dark">
+                認証エラー <small></small>
+              </h1>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!--/* コンテンツボディ
+      ============================== */-->
+      <section class="content">
+        <div class="error-page">
+          <h2 class="headline text-danger">
+            <i class="fas fa-exclamation-triangle text-danger"></i>
+          </h2>
+
+          <div class="error-content">
+            <h3 class="mb-2">認証が完了していません。</h3>
+
+            <p>
+              以下のケースが考えられます。
+            </p>
+            <ul>
+              <li>・アクセスから長時間画面を放置した場合</li>
+              <li>・ブラウザ内の別タブでログアウトの操作などをされた場合</li>
+              <li>・システム利用中に何らかのメンテナンスが発生した場合</li>
+            </ul>
+
+            <p>事象が解消されない場合は管理者へお問い合わせください。</p>
+
+            <a th:href="@{/menu}">
+              <button class="btn btn-default btn-block">ホームへ戻る</button>
+            </a>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!--/* コントロールサイドバー領域
+    ============================== */-->
+    <th:block th:replace="parts/control_sidebar.html::content"></th:block>
+
+    <!--/* フッター領域
+    ============================== */-->
+    <th:block th:replace="parts/main_footer.html::content"></th:block>
+
+  </div>
+  <th:block th:include="parts/common::end_script"></th:block>
+<!--   <script th:src="@{/js/error/401.js}"></script> -->
+</body>
+
+</html>
